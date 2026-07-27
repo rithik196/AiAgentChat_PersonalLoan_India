@@ -1,0 +1,136 @@
+{
+  "out_of_scope_messages": [
+    "I'm sorry, but I'm not able to assist with that request. Please try asking about our banking services or your Cash Finance application.",
+    "Apologies, I can only answer questions related to your cash finance application or other banking products. How can I assist you in those areas?",
+    "I'm sorry. I'm unable to provide a response to that query. Let's keep our conversation focused on the Cash Finance application or banking services so I can help you better."
+  ],
+  "banking_context_keywords": [
+    "cash finance",
+    "finance",
+    "loan",
+    "bank",
+    "branch",
+    "murabaha",
+    "tawarruq",
+    "shariah",
+    "simah",
+    "gosi",
+    "iban",
+    "salary",
+    "profit rate",
+    "installment",
+    "instalment",
+    "document",
+    "eligibility",
+    "credit card",
+    "home finance",
+    "car finance",
+    "vehicle finance",
+    "nafath",
+    "national id",
+    "yakeen",
+    "saudi post",
+    "open banking",
+    "bank statement",
+    "bureau consent",
+    "pre approved",
+    "e-sign",
+    "docusign",
+    "promissory",
+    "disbursement",
+    "otp",
+    "ivr"
+  ],
+  "domains": [
+    {
+      "id": "cash_finance_basics",
+      "keywords": ["what is cash finance", "how does cash finance work", "benefits", "key features", "new customer", "account required"],
+      "response_template": "Cash Finance is a Shariah-compliant personal financing journey where you get funds after eligibility, offer confirmation, contract signing, and disbursement. It is designed to be digital-first, quick, and transparent on profit rate and repayment. I can also explain eligibility, documents, or the exact next step in your application."
+    },
+    {
+      "id": "eligibility_requirements",
+      "keywords": ["eligible", "eligibility", "minimum salary", "age", "employed", "sector", "existing debts", "credit score", "simah", "guarantor", "collateral", "salary transfer", "expatriates", "expatriates apply", "non-saudi", "non-saudi residents", "self-employed", "business owners", "current job", "maximum age", "bad credit"],
+      "response_template": "Eligibility depends on profile checks such as identity, employment/income, obligations, and bureau checks (including SIMAH where applicable). Existing liabilities can impact the approved amount, and final approval is policy-based. If you want, I can guide you through the exact eligibility step currently active in your journey."
+    },
+    {
+      "id": "documentation",
+      "keywords": ["documents", "salary certificate", "payslip", "bank statement", "id", "gosi", "proof of address", "digital", "branch visit", "visit branch", "branch", "manual", "identification documents", "government services", "national address", "saudi post", "retrieve information automatically"],
+      "response_template": "Typical requirements include valid ID and supporting employment/income proof when needed. Some data may be fetched through integrated checks (for example identity, bureau, employment, or address services), while specific scenarios still require uploaded documents. The journey is primarily digital, and I can tell you exactly what is needed at your current step."
+    },
+    {
+      "id": "identity_verification",
+      "keywords": ["nafath", "national id", "iqama", "identity verification", "verify my id", "id electronically", "yakeen", "government services", "otp", "one time password"],
+      "response_template": "Identity verification is completed digitally using approved verification steps such as Nafath, OTP, or related government data checks where applicable. This helps confirm that the applicant and registered details match before the finance journey continues."
+    },
+    {
+      "id": "profile_data_sources",
+      "keywords": ["gosi", "what is gosi", "use gosi", "gosi verify", "saudi post", "national address", "employment and salary", "proof of address", "auto populate", "retrieve", "fetched automatically", "personal data"],
+      "response_template": "Some profile information can be retrieved from trusted sources instead of being typed manually. GOSI may be used to verify employment or salary indicators where available, and Saudi Post/national address sources may support address verification. You can review the fetched details before proceeding."
+    },
+    {
+      "id": "application_process",
+      "keywords": ["how to apply", "steps", "timeline", "status", "save and continue", "what happens after submit", "digital sign", "cancel application", "withdraw"],
+      "response_template": "The journey usually moves through identity and profile confirmation, eligibility and offer, finance plan confirmation, trade/contract authorization, then disbursement verification. Processing time depends on verification and document completion. I can walk you through the immediate next action from your current stage now."
+    },
+    {
+      "id": "pricing_profit_repayment",
+      "keywords": ["profit rate", "apr", "monthly installment", "monthly instalment", "fees", "late payment", "early settlement", "hidden charges", "total payable", "repayment", "fixed", "lower profit", "processing fee", "administrative fee", "takaful", "instalment plan", "reducing balance"],
+      "response_template": "Your pricing and repayment are determined by the approved offer and selected plan. Current values in your flow are: amount {finance_amount}, tenure {finance_tenure}, profit rate {profit_rate}, monthly installment {monthly_installment}, and total payable {total_payable}. I can help you compare options before you proceed."
+    },
+    {
+      "id": "income_open_banking",
+      "keywords": ["open banking", "bank statement", "income proof", "verify income", "salary proof", "update income", "link your account", "monthly income", "salary certificate", "payslip"],
+      "response_template": "Income can be verified through the available proof options in the journey, such as uploading a bank statement or using Open Banking where offered. Once verification is complete, the updated income and fetched expense information are used for the next review step."
+    },
+    {
+      "id": "expenses_obligations",
+      "keywords": ["expenses", "monthly expenses", "obligations", "existing debts", "credit cards", "liabilities", "total expenses", "other finance"],
+      "response_template": "Monthly expenses and obligations help assess affordability. If Open Banking is used, expense details can be prefilled for review; otherwise, you can review and modify the category breakdown before confirming."
+    },
+    {
+      "id": "bureau_consent",
+      "keywords": ["simah", "bureau", "credit bureau", "credit history", "bureau consent", "bad credit", "credit score", "consent"],
+      "response_template": "Bureau consent allows the bank to check credit history and obligations through approved credit bureau sources such as SIMAH where applicable. This is part of eligibility and affordability assessment, and final approval remains policy-based."
+    },
+    {
+      "id": "finance_offer_customization",
+      "keywords": ["pre approved amount", "eligible amount", "maximum eligible amount", "finance amount", "customize finance", "slider", "tenure", "emi", "installment amount", "offer"],
+      "response_template": "The offer step lets you review the approved or eligible finance amount and choose a finance amount and tenure within the allowed range. The monthly installment and total payable are calculated from the selected amount, tenure, and profit rate."
+    },
+    {
+      "id": "shariah_compliance",
+      "keywords": ["shariah", "halal", "murabaha", "tawarruq", "riba", "fatwa", "scholar", "islamic", "interest"],
+      "response_template": "This product follows an Islamic finance structure where the transaction is executed through Shariah-approved trade mechanics rather than interest-based lending. Profit, tenure, and repayment are disclosed up front before you confirm. If you want, I can explain the Murabaha/Tawarruq flow in simple steps."
+    },
+    {
+      "id": "commodity_trade",
+      "keywords": ["commodity", "trade", "broker", "platform", "certificate", "price", "quantity", "physical possession", "agent to sell", "gold", "silver", "commodity trading", "proof of the transaction", "bought and sold"],
+      "response_template": "The commodity trade step is the core Shariah execution layer of the financing journey. You review and authorize the trade, the system executes it, and a transaction certificate is generated as proof. I can explain what happens before and after this step in your current flow."
+    },
+    {
+      "id": "post_approval_servicing",
+      "keywords": ["after approval", "disbursement", "iban", "contract", "e-sign", "funds", "repay", "statement", "close finance", "receive the funds", "repayment account", "copy of the contract", "digital signature", "legally valid", "fund transfer"],
+      "response_template": "After approval, the flow continues with contract/promissory signing, disbursement account confirmation, final verification, and fund transfer. For your current journey, selected disbursement details are IBAN {iban}, bank {bank_name}, beneficiary {beneficiary}. I can help you complete the next pending action."
+    },
+    {
+      "id": "contract_esign",
+      "keywords": ["contract", "promissory note", "promissory", "e-sign", "esign", "digital signature", "digital signature legally valid", "docusign", "signing email", "agreement", "legal"],
+      "response_template": "The contract and promissory note are generated after the trade/document steps and can be signed digitally. The signing flow may send secure signing links to the registered email, and the journey continues once signing is completed."
+    },
+    {
+      "id": "final_verification",
+      "keywords": ["final verification", "ivr", "otp verification", "otp", "registered mobile", "verification successful", "call verification"],
+      "response_template": "Final verification confirms the customer consent before disbursement. Depending on the option selected, you may complete it through a 4-digit OTP sent to the registered mobile number or through an IVR verification request."
+    },
+    {
+      "id": "other_products",
+      "keywords": ["credit card", "home finance", "housing finance", "car finance", "vehicle finance", "other products"],
+      "response_template": "Yes, we can also help with related products such as credit cards, home finance, and vehicle finance. Eligibility and documentation differ by product type, but I can share a quick overview and then continue your current Cash Finance journey."
+    },
+    {
+      "id": "platform_support",
+      "keywords": ["arabic", "english", "voice mode", "typing mode", "read out", "security", "privacy", "stuck", "technical issue", "application gets stuck", "safe with this app", "personal information"],
+      "response_template": "You can continue through chat conversationally, and support is available for journey and platform-related guidance. Your data is handled through secured banking workflows and controlled verification steps. If something is stuck, I can help recover from the exact step you are on."
+    }
+  ]
+}

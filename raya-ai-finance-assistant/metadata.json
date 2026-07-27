@@ -1,0 +1,6 @@
+{
+  "name": "Raya AI Finance Assistant",
+  "description": "Premium mobile-first landing page for RAYA, an AI-powered conversational digital finance assistant for Islamic and conventional cash finance products.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
