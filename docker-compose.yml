@@ -1,126 +1,125 @@
-version: "3.9"
- 
+name: personalloan
+
 networks:
-  my-network:
+  personalloan-network:
 
 volumes:
-  postgres-data:
-  redis-data:
-  mssql-data: 
-  mongo-data:
-  aiagent-frontend-data:
-  aiagent-backend-data:
-  aiagent-agent-data:
-  aiagent-workflow-data:
+  personalloan-postgres-data:
+  personalloan-redis-data:
+  personalloan-mssql-data:
+  personalloan-mongo-data:
+  personalloan-frontend-data:
+  personalloan-backend-data:
+  personalloan-agent-data:
+  personalloan-workflow-data:
 
 services:
   postgres:
-      image: postgres:15
-      container_name: postgres
-      restart: unless-stopped
-      env_file:
-        - .env
-      ports:
-        - "5432:5432"
-      volumes:
-        - postgres-data:/var/lib/postgresql/data
-      networks:
-        - my-network
+    image: postgres:15
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "15432:5432"
+    volumes:
+      - personalloan-postgres-data:/var/lib/postgresql/data
+    networks:
+      - personalloan-network
   redis:
-      image: redis:7-alpine
-      container_name: redis
-      restart: unless-stopped
-      ports:
-        - "6379:6379"
-      volumes:
-        - redis-data:/data
-      networks:
-        - my-network
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "16379:6379"
+    volumes:
+      - personalloan-redis-data:/data
+    networks:
+      - personalloan-network
   mongodb:
-      image: mongo:7
-      container_name: mongodb
-      restart: unless-stopped
-      ports:
-        - "27017:27017"
-      volumes:
-        - mongo-data:/data/db
-      networks:
-        - my-network
+    image: mongo:7
+    restart: unless-stopped
+    ports:
+      - "27018:27017"
+    volumes:
+      - personalloan-mongo-data:/data/db
+    networks:
+      - personalloan-network
   sqlserver:
-      image: mcr.microsoft.com/mssql/server:2022-latest
-      container_name: sqlserver
-      restart: unless-stopped
-      env_file:
-        - .env
-      ports:
-        - "1433:1433"
-      volumes:
-        - mssql-data:/var/opt/mssql
-      networks:
-        - my-network
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "11433:1433"
+    volumes:
+      - personalloan-mssql-data:/var/opt/mssql
+    networks:
+      - personalloan-network
   temporal:
-      image: temporalio/auto-setup:latest
-      container_name: temporal
-      restart: unless-stopped
-      env_file:
-        - .env
-      ports:
-        - "7233:7233"
-        - "8080:8080"
-      depends_on:
-        - postgres
-      networks:
-        - my-network
+    image: temporalio/auto-setup:latest
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "17233:7233"
+      - "18080:8080"
+    depends_on:
+      - postgres
+    networks:
+      - personalloan-network
   aiagent-frontend:
     build:
       context: .
       dockerfile: frontend/Dockerfile
-    container_name: aiagent-frontend
+    restart: unless-stopped
     ports:
-      - "3000:3000"
+      - "13000:3000"
     networks:
-      - my-network
+      - personalloan-network
     env_file:
       - .env
     volumes:
-      - aiagent-frontend-data:/app/data
+      - personalloan-frontend-data:/app/data
   aiagent-backend:
     build:
       context: .
       dockerfile: backend/Dockerfile
-    container_name: aiagent-backend
+    restart: unless-stopped
     ports:
-      - "8000:8000"
+      - "18000:8000"
     networks:
-      - my-network
+      - personalloan-network
     env_file:
       - .env
     depends_on:
       - mongodb
+      - aiagent-agent
     volumes:
-      - aiagent-backend-data:/app/data
+      - personalloan-backend-data:/app/data
   aiagent-agent:
     build:
       context: .
       dockerfile: agent/Dockerfile
-    container_name: aiagent-agent
+    restart: unless-stopped
     networks:
-      - my-network
+      - personalloan-network
     env_file:
       - .env
     depends_on:
       - mongodb
+      - redis
     volumes:
-      - aiagent-agent-data:/app/data
+      - personalloan-agent-data:/app/data
 
   aiagent-workflow:
     build:
       context: .
       dockerfile: workflow/Dockerfile
-    container_name: aiagent-workflow
+    restart: unless-stopped
     networks:
-      - my-network
+      - personalloan-network
     env_file:
       - .env
+    depends_on:
+      - temporal
     volumes:
-      - aiagent-workflow-data:/app/data
+      - personalloan-workflow-data:/app/data

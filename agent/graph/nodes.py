@@ -21,8 +21,12 @@ logger = logging.getLogger(__name__)
 
 # ── LLM client ──────────────────────────────────────────────────────
 _client: AsyncOpenAI | None = None
-CLASSIFY_MODEL = "gpt-4o-mini"
-RESPOND_MODEL  = "gpt-4o-mini"
+LLM_BASE_URL = os.getenv("LLM_BASE_URL", "http://192.168.150.55:11436/v1")
+LLM_API_KEY = os.getenv("LLM_API_KEY", os.getenv("OPENAI_API_KEY", "local-llm"))
+
+# Keep both models configurable; default to the same local hosted model.
+CLASSIFY_MODEL = os.getenv("CLASSIFY_MODEL", os.getenv("OPENAI_MODEL", "trade-doc-ai"))
+RESPOND_MODEL = os.getenv("RESPOND_MODEL", CLASSIFY_MODEL)  
 
 CONTINUATION_PHRASES = (
     "yes",
@@ -80,8 +84,9 @@ DECLINE_PHRASES = (
 def _get_client() -> AsyncOpenAI:
     global _client
     if _client is None:
-        _client = AsyncOpenAI()
+        _client = AsyncOpenAI(base_url=LLM_BASE_URL, api_key=LLM_API_KEY)
     return _client
+
 
 
 async def _chat(model: str, messages: list[dict], temperature: float = 0.7) -> str:

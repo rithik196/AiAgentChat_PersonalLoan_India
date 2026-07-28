@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  basePath: "/customer_agent",
+  basePath: "/AgenticAI",
 };
 
 export default nextConfig;
